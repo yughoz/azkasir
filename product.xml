@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+
+<Styles>
+ <Style ss:ID="Default" ss:Name="Normal">
+  <Alignment ss:Vertical="Bottom"/>
+  <Borders/>
+  <Font/>
+  <Interior/>
+  <NumberFormat/>
+  <Protection/>
+ </Style>
+ <Style ss:ID="s27">
+  <Font x:Family="Swiss" ss:Color="#0000FF" ss:Bold="1"/>
+ </Style>
+ <Style ss:ID="s21">
+  <NumberFormat ss:Format="yyyy\-mm\-dd"/>
+ </Style>
+ <Style ss:ID="s22">
+  <NumberFormat ss:Format="yyyy\-mm\-dd\ hh:mm:ss"/>
+ </Style>
+ <Style ss:ID="s23">
+  <NumberFormat ss:Format="hh:mm:ss"/>
+ </Style>
+</Styles>
+
+ <Worksheet ss:Name="Sheet1">
+  <ss:Table>
+   <ss:Row>
+    <ss:Cell  ss:StyleID="s27"><Data ss:Type="String">name</Data></ss:Cell>
+    <ss:Cell  ss:StyleID="s27"><Data ss:Type="String">price</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String"> L.A. Bold</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">17000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String"> Marlboro Black Menthol</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">21500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String"> Neslite MENTHOL</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">11000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String"> Sampoerna Mild 16</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">19500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Aroma</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">9500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">clas mild 12</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">12000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">clas mild 16</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">17000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">DJI SAM SOE 10</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">9999</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">DJI SAM SOE 16</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">9999</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Dunhil 16 batang</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Dunhil 20 batang</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">20000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">filter 12</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">filter kaleng</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">1500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">GG Mild</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">14000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Gudang Garam Merah</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">11000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Korek Gas Tokai</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">2500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">L.A. 16</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">17500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Magnum Black</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Magnum Blue </Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Marlboro Ice Blast</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">23000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">MARLBORO MERAH</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">21500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">MARLBORO PUTIH</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">21500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">MLD</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">17000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">MLD Black</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Mustang</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">10000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">NESLITE PUTIH</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">11000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">pro mild</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">13000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Sam Soe Hitam Premium</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">19000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Sampoerna Avolution</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">21000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Sampoerna Kretek</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">11000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Sampoerna Mild Menthol</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">19500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Samsoe 12</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">signatur 12</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">13500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">signatur biru kaleng</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">1000</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">super 12</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">SURYA 16</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">19500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">SURYA PRO</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15500</Data></ss:Cell>
+   </ss:Row>
+   <ss:Row>
+    <ss:Cell><Data ss:Type="String">Umild</Data></ss:Cell>
+    <ss:Cell><Data ss:Type="Number">15000</Data></ss:Cell>
+   </ss:Row>
+  </ss:Table>
+ </Worksheet>
+</Workbook>
