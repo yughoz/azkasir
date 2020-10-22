@@ -147,10 +147,10 @@
                             title: "Sukses",
                             message: "<?php echo azlang('Transaction success');?>",
                             callback: function(brespon){
-                                location.href = "<?php echo app_url();?>transaction";
                                 if (print_nota == 'print') {
                                     window.open("<?php echo app_url();?>transaction_list/print_nota/?code=<?php echo $tgc;?>", '_blank');
                                 }
+                                location.href = "<?php echo app_url();?>transaction";
                             }
                         });
                     }

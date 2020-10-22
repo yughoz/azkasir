@@ -128,6 +128,8 @@
                         foreach ($transaction->result() as $key => $value) {
                             if ($value->name == "BON") {
                                 $bon = $value->sell_price;
+                            } elseif ($value->barcode == "ONGKIR") {
+                                $ONGKIR = $value->sell_price;
                             } else {
                                 echo "<tr>";
                                 echo "  <td class='name' colspan='3'>".$value->name."</td>";
@@ -172,6 +174,8 @@
                             if (!empty($bon)) {
                                 echo az_thousand_separator($data->total_sell_price-$bon);
                                 
+                            } elseif (!empty($ONGKIR)) {
+                                echo az_thousand_separator($data->total_sell_price-$ONGKIR);
                             } else {
                                 echo az_thousand_separator($data->total_sell_price);
                                 
@@ -200,6 +204,16 @@
                             <div class="separate-line"></div>
                         </td>
                     </tr>
+                    <?php if (!empty($ONGKIR)): ?>
+                    <tr>
+                        <td colspan="2" class="final-price">
+                            Ongkir
+                        </td>
+                        <td class="final-price">
+                            <?php echo az_thousand_separator($ONGKIR);?>
+                        </td>
+                    </tr>
+                    <?php endif ?>
                     <?php if (!empty($bon)): ?>
                     <tr>
                         <td colspan="2" class="final-price">
@@ -245,4 +259,8 @@
             </div>
         </div>
     </body>
+        <script type="text/javascript">
+        setTimeout(function(){ window.close(); }, 3000);
+
+    </script>
 </html>

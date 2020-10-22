@@ -72,6 +72,7 @@ class Transaction_list extends CI_Controller {
 		$crud->set_top_filter($v_filter);
 		$v_view = $crud->render();
 		$azapp->add_content($v_view);
+		// echo print_r($v_view);die;
 		$azapp->add_content("
 			<form id='edit_transaction' class='' method='POST' action='".app_url()."transaction'>
 				<input type='hidden' id='idtransaction_group' name='idtransaction_group'/>
@@ -83,9 +84,14 @@ class Transaction_list extends CI_Controller {
 				location.href = app_url+'transaction';
 			});
 
+		 	jQuery('#filter_form').on('submit',(function(e) {
+		 		alert('filter_form');
+		 	}));
+
 			jQuery('body').on('click', '.btn-edit-transaction-list', function() {
 				jQuery('#idtransaction_group').val(jQuery(this).attr('data-id'));
 				jQuery('#edit_transaction').submit();
+				alert('filter_form_test');
 			});
 		");
 
@@ -93,10 +99,12 @@ class Transaction_list extends CI_Controller {
 		$data_header['subtitle'] = azlang('SALE REPORT');
 		$azapp->set_data_header($data_header);
 
+		// echo print_r($data_header);
 		echo $azapp->render();
 	}
 
 	public function get() {
+		$request = $_REQUEST;
 		$this->load->library("AZAppCRUD");
 		$crud = $this->azappcrud;
     	$crud->set_select("transaction_group.idtransaction_group, '' as xxx, DATE_FORMAT(transaction_group.transaction_date, '%d-%m-%Y  %H:%i:%s') as transaction_date, transaction_group.code, transaction_group.total_cash, transaction_group.total_sell_price, transaction_group.total_discount, transaction_group.total_final_price, transaction_group.idcustomer, customer.name customer_name, transaction_group.iduser, user.name");
@@ -119,7 +127,71 @@ class Transaction_list extends CI_Controller {
     	$crud->set_select_number("3, 4, 5");
     	$crud->set_order_by("transaction_group.transaction_date desc");
     	
-		echo $crud->get_table();
+    	$temp = json_decode( $crud->get_table(),true);
+    	$today = Date("Y-m-d");
+		$this->db->select("sum(total_final_price) as total");
+		// $this->db->where("transaction_date BETWEEN '".$today." 00:00:00' AND '".$today." 23:59:59'");
+		if ($this->session->userdata("user_type") != "administrator") {
+			$this->db->where("iduser", $this->session->userdata("iduser"));
+		}
+		$this->db->where("status", "OK");
+
+
+
+		$top_filter = azarr($request, 'topfilter');
+    	$arr_tf = array();
+    	foreach ($top_filter as $key => $value) {
+    		$arr_tf[$this->encrypt->decode($key)] = $value;
+    	}
+    	$check = explode("~az~", $arr_tf['transaction_date']);
+		if (count($check) > 1) {
+			$top_filter1 = azarr($check, "0");
+			$top_filter2 = azarr($check, "1");
+			$check_date = explode("-", $top_filter1);
+			if (count($check_date) > 1) {
+				$top_filter1 = Date("Y-m-d H:i:s", strtotime($top_filter1." 00:00:00"));
+				$top_filter2 = Date("Y-m-d H:i:s", strtotime($top_filter2." 23:59:59"));
+			}
+			$this->db->where("(transaction_date BETWEEN '".$top_filter1."' AND '".$top_filter2."')");
+			// echo "(transaction_date BETWEEN '".$top_filter1."' AND '".$top_filter2."')";die;
+		}
+		$price = $this->db->get("transaction_group")->row();
+
+		$temp['price'] = number_format($price->total); 
+
+
+
+		$this->db->select("sum(final_price) as final_price,sum(modal_price) as modal_price");
+		// $this->db->where("transaction_date BETWEEN '".$today." 00:00:00' AND '".$today." 23:59:59'");
+		if ($this->session->userdata("user_type") != "administrator") {
+			$this->db->where("iduser", $this->session->userdata("iduser"));
+		}
+		$this->db->where("status", "OK");
+
+
+
+
+		if (count($check) > 1) {
+			$top_filter1 = azarr($check, "0");
+			$top_filter2 = azarr($check, "1");
+			$check_date = explode("-", $top_filter1);
+			if (count($check_date) > 1) {
+				$top_filter1 = Date("Y-m-d H:i:s", strtotime($top_filter1." 00:00:00"));
+				$top_filter2 = Date("Y-m-d H:i:s", strtotime($top_filter2." 23:59:59"));
+			}
+			$this->db->where("(created BETWEEN '".$top_filter1."' AND '".$top_filter2."')");
+			// echo "(transaction_date BETWEEN '".$top_filter1."' AND '".$top_filter2."')";die;
+		}
+		$dataTransaction = $this->db->get("transaction")->row();
+
+		$temp['final_price'] = number_format($dataTransaction->final_price); 
+		$temp['modal_price'] = number_format($dataTransaction->modal_price); 
+		$temp['untung'] 	 = number_format($dataTransaction->final_price - $dataTransaction->modal_price); 
+
+
+		// echo json_encode($dataTransaction);die;
+
+		echo json_encode($temp);die;
 	}
 
 	public function custom_style($column, $value, $data) {
@@ -199,6 +271,7 @@ class Transaction_list extends CI_Controller {
 			$this->db->join("product", "product.idproduct = transaction.idproduct");
 			$this->db->where("idtransaction_group", $rdata->row()->idtransaction_group);
 			$data['transaction'] = $this->db->get("transaction");
+			// echo print_r($data);die;
 			// $this->load->view("transaction_list/v_print", $data);
 			$this->load->view("transaction_list/v_print_al", $data);
 		}

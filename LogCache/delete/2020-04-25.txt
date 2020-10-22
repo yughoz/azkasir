@@ -1,0 +1,9 @@
+[{"idproduct":"15273","idproduct_unit":"12","idproduct_category":"27","barcode":"AZT-141","name":"0","price":"6500","modal_price":"5583","grosir_price":"6500","stock":"0","description":"","show":null,"empty_stock":null,"default_img":null,"counter":"4","created":"2016-12-27 20:48:03","createdby":"kasir1","updated":"2019-11-16 11:53:45","updatedby":"administrator"}]
+[]
+null
+[]
+[{"idproduct":"15713","idproduct_unit":"3","idproduct_category":"13","barcode":"8886007811496","name":"0","price":"2500","modal_price":"1900","grosir_price":"2500","stock":"0","description":"","show":null,"empty_stock":null,"default_img":null,"counter":"4","created":"2017-03-30 10:49:18","createdby":"kasir1","updated":"2019-07-23 09:06:56","updatedby":"administrator"}]
+[{"idproduct":"15713","idproduct_unit":"3","idproduct_category":"13","barcode":"8886007811496","name":"0","price":"2500","modal_price":"1900","grosir_price":"2500","stock":"0","description":"","show":null,"empty_stock":null,"default_img":null,"counter":"4","created":"2017-03-30 10:49:18","createdby":"kasir1","updated":"2019-07-23 09:06:56","updatedby":"administrator"}]
+[]
+[]
+[{"idproduct":"15607","idproduct_unit":"16","idproduct_category":"4","barcode":"AZT-465","name":"000","price":"26000","modal_price":"22333","grosir_price":"24000","stock":"0","description":"","show":null,"empty_stock":null,"default_img":null,"counter":"75","created":"2017-02-13 18:41:17","createdby":"kasir1","updated":"2018-10-10 21:23:16","updatedby":"administrator"}]

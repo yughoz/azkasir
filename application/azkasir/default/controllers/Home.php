@@ -63,6 +63,7 @@ class Home extends CI_Controller {
 		$data["product_stock"] = $this->db->get("product");
 
 
+		// echo print_r($data);die;
 		$v_home = $this->load->view('home/v_home', $data, true);
 		$azapp->add_content($v_home);
 

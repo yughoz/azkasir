@@ -1,0 +1,6 @@
+{"timeRes":1,"param":"{\"code\":\"success\",\"message\":\"Insert Record Success\"}"}
+{"timeRes":0,"param":"{\"code\":\"success\",\"message\":\"Insert Record Success\"}"}
+{"timeRes":7,"param":"{\"code\":\"success\",\"message\":\"Insert Record Success\"}"}
+{"timeRes":2,"param":"{\"code\":\"success\",\"message\":\"Insert Record Success\"}"}
+{"timeRes":0,"param":"{\"code\":\"success\",\"message\":\"Insert Record Success\"}"}
+{"timeRes":4,"param":"{\"code\":\"success\",\"message\":\"Insert Record Success\"}"}

@@ -1,0 +1,1 @@
+[{"idproduct":"15412","idproduct_unit":"8","idproduct_category":"48","barcode":"10111199","name":"LADA 1 kg","price":"100000","modal_price":"80000","grosir_price":"90000","stock":"0","description":"","show":null,"empty_stock":null,"default_img":null,"counter":null,"created":"2017-01-16 18:47:07","createdby":"kasir1","updated":"2020-08-12 20:37:18","updatedby":"administrator"}]

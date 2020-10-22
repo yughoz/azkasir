@@ -2,7 +2,7 @@
     $ci =& get_instance();
     $ci->load->library("encrypt");
 ?>
-<form class="form-horizontal az-form" name="form" method="post">
+<form class="form-horizontal az-form" name="form" id="filter_form" method="post">
 	<div class="form-group element-top-filter" data-id="<?= $ci->encrypt->encode("transaction_date");?>">
         <label for="" class="col-sm-1 control-label"><?php echo azlang('Date');?></label>
         <div class="col-sm-4">
@@ -39,4 +39,15 @@
             }
         ?>
     </div>
+
 </form>
+
+<br>
+<div class="transaction-price">
+    <h4>
+    <table>
+        <tr><td>Total</td><td>:</td><td id="total_td">100.000</td></tr>
+        <tr><td>Untung</td><td>:</td><td id="untung_td">100.000</td></tr>
+    </table>
+    </h4>
+</div>

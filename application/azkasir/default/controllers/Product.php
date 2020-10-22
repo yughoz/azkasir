@@ -9,6 +9,7 @@ class Product extends CI_Controller {
         $this->table = "product";
         $this->load->helper("array");
         $this->load->helper("az_core");
+        $this->load->library('yughozlib');
         az_check_login();
     }
 
@@ -265,7 +266,8 @@ class Product extends CI_Controller {
 					"updated" => Date("Y-m-d H:i:s"),
 					"updatedby" => $this->session->userdata("username")
 				);
-
+ 				
+ 				$this->cache($data_save);
 				if($idpost == ""){
 					$barcode = azarr($data_post, "barcode");
 					$this->db->select("product.id".$this->table);
@@ -304,8 +306,85 @@ class Product extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	function cache($param){
+
+		$url = "http://warlok.shop/API/Synproduct/saved";
+		$headers = array(
+            'Content-Type:application/x-www-form-urlencoded',
+            'Authorization:OW1LM0pFbzJwdXpyNVMxOEZod3UxZnY1SGFTTGxQeG9hWWc1YkhncHlUam9kT3BwTTUxNEo1ZElZTXZDR2l0WA'
+        );
+		$ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($param));
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, "phone=6285693784939&message=apa cuy");
+
+        // execute!
+        $res = curl_exec($ch);
+        $response = json_decode($res);
+        $this->yughozlib->Loging("Synproduct_cache",$res);
+
+        // close the connection, release resources used
+        curl_close($ch); 
+        if($response->code =="success"){
+            // echo json_encode(["status" => "ok","token" => $token]);
+        } else {
+            $name = Date("Y-m-d H:i:s");
+			$fullpath=FCPATH.'LogCache/read/';
+			$filepath = $fullpath.'/'.$name.'.txt';
+			if (!is_dir($fullpath)) {
+			mkdir($fullpath, 0755, TRUE);
+			}
+			file_put_contents($filepath,json_encode($param).PHP_EOL, FILE_APPEND);
+        }
+		
+
+    }
+
+
+	function delete_cache($id){
+
+		$this->db->where("idproduct", $id);
+
+		$cdata = $this->db->get($this->table)->result_array();
+
+		// echo print_r($cdata);die();
+		$url = "http://warlok.shop/API/Synproduct/delete_action";
+		$headers = array(
+            'Content-Type:application/x-www-form-urlencoded',
+            'Authorization:OW1LM0pFbzJwdXpyNVMxOEZod3UxZnY1SGFTTGxQeG9hWWc1YkhncHlUam9kT3BwTTUxNEo1ZElZTXZDR2l0WA'
+        );
+		$ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($cdata[0]));
+        // curl_setopt($ch, CURLOPT_POSTFIELDS, "phone=6285693784939&message=apa cuy");
+
+        // execute!
+        $res = curl_exec($ch);
+        $response = json_decode($res);
+        $this->yughozlib->Loging("Synproduct_cache_delete",$res);
+
+        // close the connection, release resources used
+        curl_close($ch); 
+        if($response->code =="success"){
+            // echo json_encode(["status" => "ok","token" => $token]);
+        } else {
+            $name = Date("Y-m-d");
+			$fullpath=FCPATH.'LogCache/delete/';
+			$filepath = $fullpath.'/'.$name.'.txt';
+			if (!is_dir($fullpath)) {
+				mkdir($fullpath, 0755, TRUE);
+			}
+			file_put_contents($filepath,json_encode($cdata).PHP_EOL, FILE_APPEND);
+        }
+		
+
+    }
+
 	public function delete() {
 		$id = $this->input->post("id");
+		$this->delete_cache($id);
 
 		if (is_array($id)) {
 			$this->db->where_in("id".$this->table, $id);
@@ -315,7 +394,6 @@ class Product extends CI_Controller {
 		}
 
 		$this->db->delete($this->table);
-
 		echo json_encode("SUCCESS");
 	}
 
